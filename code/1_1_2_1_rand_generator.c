@@ -5,7 +5,9 @@
 
 int  main(void) //main function begins
 {
- 
+
+//This generates huge samples of uniform random variables and gaussian random variables.
+
 //Uniform random numbers
 uniform("uni.dat", 1000000);
 
