@@ -106,6 +106,15 @@ columns=fullflexible
 \renewcommand{\thetable}{\theenumi}
 	% The solution
 \section{Solution:}
+Let $U$ be a uniform random variable between 0 and 1.\\
+\textbf{(1.1)} \solution Download the following files and execute the C program \\
+     \fbox{The C code - \href{https://github.com/Donal-08/Prob_Assignment/blob/main/code/1_1_2_1_rand_generator.c}{exrand.c} }\\
+    \fbox{The Header - \href{https://github.com/Donal-08/Random-numbers/blob/main/code/coeffs.h}{coeffs.h} }  \vspace{2mm}\\ 
+
+\textbf{(1.2)}  \solution The following code plots Fig. \ref{fig:uni_cdf}
+    \\
+    \fbox{Python code - \href{https://github.com/Donal-08/Random-numbers/blob/main/code/1_2_cdf_plot.py}{cdf\_plot.py}} \vspace{2mm} \\
+    
 \textbf{(1.3)} \hspace{1mm} U is an uniform random variable.So, $P_{U}(x_{i})=P_{U}(x_{j}) = \dfrac{1}{b-a}$,\hspace{2mm}$\forall i,j$ \hspace{2mm}, $U \in [a,b]$ \\
 	$F_{U}(x)$ = CDF of $P_{U}(x)$ \\
 	$f_{U}(x) = \dfrac{1}{b-a} = 1 $ \hspace{3mm} [$\because$ here $a=0,b=1$]
@@ -113,22 +122,49 @@ columns=fullflexible
 	\therefore F_{U}(x) &= \int_{0}^{x} f_{U}(x) dx\\
 	                    &=\int_{0}^{x} dx\\
 	                    &= x\\
-  \therefore F_{U}(x)&=x \label{eq:1}
+  \therefore F_{U}(x)&=x \hspace{8mm} \forall \hspace{1mm} 0 \le x \le 1
+  \label{eq:1}
 	\end{align}	
+	Therefore,
+    \begin{align}
+		F_U(x) = 
+		\begin{cases}
+			0 & x < 0 \\
+			x & 0 \leq x < 1 \\
+			1 & x \geq 1
+		\end{cases}
+    \end{align}
 \begin{figure}[h]
 \includegraphics[width=0.5\textwidth]{uni_cdf.pdf}
 \caption{CDF for (1)}
-\label{fig-1}
+\label{fig:uni_cdf}
 \end{figure}\\
-\textbf{(1.5)} From \ref{eq:1},\hspace{2mm}$dF_{U}(x)=dx$
+\textbf{(1.4)} \solution Download and run the following C code.\\
+    Mean and variance - \fbox{\href{https://github.com/Donal-08/Random-numbers/blob/main/code/1_4_mean_uni.c}{mean\_uni.c}}\\
+\textbf{(1.5)} From \ref{eq:1},\hspace{2mm}
+$dF_{U}(x)=dx$
 \begin{align}
 & E[U^k]=\int_{-\infty}^{\infty} x^k dx\\
-&\therefore E[U]=\int_{0}^{1} x dx=\frac{1}{2} = 0.5\\
+&\therefore E[U]=\int_{0}^{1} x dx=\frac{1}{2} = \fbox{0.5}\\
 &E[U^2]=\int_{0}^{1} x^2 dx=\frac{1}{3}\\
 &\because P_{X}(x)=0 ,\hspace{2mm}\forall x \in (-\infty,0)\cap (1,\infty)\\
-&Var(X)=E[U^2]-(E[U])^2=\frac{1}{12} = 0.083
+&Var(X)=E[U^2]-(E[U])^2=\frac{1}{12} = \fbox{0.083}
 \end{align}
-We can observe that these theoretical values are quite close to what we obtained numerically\vspace{1em}\\ 
+We can observe that these theoretical values are quite close to what we obtained numerically\vspace{3em}\\
+\textbf{2.2} Load gau.dat in python and plot the empirical CDF of $X$ using the sample in gau.dat. What properties does a CDF have? \\
+    \solution The CDF of $X$ is plotted in Fig. \ref{fig:gauss_cdf}
+    \begin{figure}[h]
+        \centering
+        \includegraphics[width=\columnwidth]{gauss_cdf.pdf}
+        \caption{The CDF of $X$}
+        \label{fig:gauss_cdf}
+    \end{figure}
+    \textbf{properties of cdf}
+    \begin{itemize}
+        \item $F_X(x)$ is a nondecreasing function of x for -$\infty < x < \infty$. 
+        \item The CDF, $F_X(x)$ ranges from 0 to 1. This makes sense since $F_X(x)$ is a probability.
+        \item If the maximum value of $X$ is b,\\ then $F_X(b)$ = 1 \\
+    \end{itemize} 
 \textbf{(2.3)}
  \begin{enumerate}
 \item PDF is symmetric about $x=0$\\
@@ -167,7 +203,7 @@ We can observe that these theoretical values are quite close to what we obtained
 \label{fig:my_label}
 \end{figure}
 \\
- (3.2)\begin{align}
+ \textbf{(3.2)}\begin{align}
  &F_{V}(x)=P(V \leq x)\\
  &=P(-2 ln(1-U) \leq x)\\
  &=P(1-e^{\frac{-x}{2}} \geq U)\\
